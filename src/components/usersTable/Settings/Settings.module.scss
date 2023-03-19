@@ -1,0 +1,35 @@
+@import './src/styles/mixin';
+
+.settingsContainer {
+  @include flex(column, center, center, wrap);
+  width: 100%;
+  margin-bottom: 30px;
+
+  .settingsBlock {
+    @include flex(row, space-between, center, wrap);
+    width: 70%;
+    height: 60px;
+
+    .radioBlock {
+      @include flex(row, space-between, center, wrap);
+      width: 280px;
+
+    }
+
+    .sliderBlock {
+      @include flex(row, center, center, wrap);
+      width: 280px;
+    }
+
+    .inputBlock {
+      @include flex(row, center, center, wrap);
+      width: 160px;
+
+    }
+
+    .seedBlock {
+      @include flex(row, space-evenly, center, wrap);
+      width: 290px;
+    }
+  }
+}

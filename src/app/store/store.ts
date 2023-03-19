@@ -2,15 +2,11 @@ import {AnyAction, combineReducers} from 'redux';
 import thunk, {ThunkDispatch} from 'redux-thunk'
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import {configureStore} from "@reduxjs/toolkit";
-import {appReducer} from "../app-reducer";
-import {authReducer} from "../../feauters/auth/auth-reducer";
-import {usersReducer} from "../../feauters/usersTable/users-reducer";
 
 
 const rootReducer = combineReducers({
-    app: appReducer,
-    auth: authReducer,
-    users: usersReducer,
+    // app: appReducer,
+    // users: usersReducer,
 })
 
 
