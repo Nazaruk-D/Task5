@@ -17,7 +17,7 @@ const Settings = () => {
                                     name="row-radio-buttons-group">
                             <FormControlLabel value="EN" control={<Radio/>} label="EN" style={{marginRight: "35px"}}/>
                             <FormControlLabel value="RUS" control={<Radio/>} label="RUS" style={{marginRight: "35px"}}/>
-                            <FormControlLabel value="UKR" control={<Radio/>} label="UKR"/>
+                            <FormControlLabel value="UA" control={<Radio/>} label="UA"/>
                         </RadioGroup>
                 </div>
                 <div className={s.sliderBlock}>
@@ -59,7 +59,7 @@ const Settings = () => {
                             }}
                         />
                     </Box>
-                    <Button variant="contained">Contained</Button>
+                    <Button variant="contained">Random</Button>
                 </div>
             </div>
         </div>
