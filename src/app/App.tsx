@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
 import UsersTable from "../components/usersTable/UsersTable";
 import {useAppDispatch, useAppSelector} from "../store/store";
-import {selectorLanguage, selectorNumberOfMistakes} from "../store/selector/selectorApp";
+import {selectorLanguage, selectorNumberOfMistakes, selectorStatusApp} from "../store/selector/selectorApp";
 import {fetchUsers} from "../store/reducers/users-reducer";
 import {AmountUser} from "../enums/AmountUser";
+import {setAppStatusAC} from "../store/reducers/app-reducer";
 
 function App() {
     const dispatch = useAppDispatch();
@@ -11,6 +12,7 @@ function App() {
     const language = useAppSelector(selectorLanguage);
 
     useEffect(() => {
+        dispatch(setAppStatusAC("succeeded"))
         dispatch(fetchUsers({ language, seed, amount: AmountUser.First }));
     }, []);
 

@@ -14,7 +14,7 @@ const slice = createSlice({
     } as InitialStateType,
     reducers: {
         setAppStatusAC(state, action) {
-            state.status = action.payload.status
+            state.status = action.payload
         },
         setAppErrorAC(state, action: PayloadAction<{ message: null | string }>) {
             state.error = action.payload.message

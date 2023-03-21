@@ -21,6 +21,7 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async (payload: s
             return res.data
         } catch (err: any) {
             const error: AxiosError = err.response.data
+            dispatch(setAppStatusAC('failed'))
             handleServerNetworkError(error, dispatch)
         }
     },
