@@ -5,8 +5,11 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import {LinearProgress} from "@mui/material";
+import {useAppSelector} from "../../store/store";
+import {selectorStatusApp} from "../../store/selector/selectorApp";
 
 const Header = () => {
+    const status = useAppSelector(selectorStatusApp)
 
     return (
         <Box sx={{flexGrow: 1}} className={s.headerContainer}>
@@ -17,9 +20,9 @@ const Header = () => {
                     </Typography>
                 </Toolbar>
             </AppBar>
-            {/*{*/}
-            {/*    status === "loading" && <LinearProgress color="secondary"/>*/}
-            {/*}*/}
+            {
+                status === "loading" && <LinearProgress color="secondary"/>
+            }
         </Box>
     );
 };

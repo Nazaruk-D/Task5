@@ -11,7 +11,6 @@ type RadioComponentPropsType = {
 
 
 const RadioComponent: FC<RadioComponentPropsType> = ({value, languageSettings, onChange}) => {
-
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         onChange(e.target.value as Language);
     }

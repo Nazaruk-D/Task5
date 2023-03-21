@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {Language, LanguageType} from "../../../enums/Language";
+import {Language, LanguageType} from "../../enums/Language";
 
 
 const slice = createSlice({
@@ -13,7 +13,7 @@ const slice = createSlice({
         error: null
     } as InitialStateType,
     reducers: {
-        setAppStatusAC(state, action: PayloadAction<{ status: RequestStatusType }>) {
+        setAppStatusAC(state, action) {
             state.status = action.payload.status
         },
         setAppErrorAC(state, action: PayloadAction<{ message: null | string }>) {
@@ -34,29 +34,6 @@ const slice = createSlice({
         setLanguage: (state, action: PayloadAction<LanguageType>) => {
             state.language = action.payload;
         },
-
-    },
-    extraReducers: builder => {
-        // builder.addMatcher(
-        //     action => action.type.endsWith('/pending'),
-        //     state => {
-        //         state.isProgress = true;
-        //     },
-        // );
-        //
-        // builder.addMatcher(
-        //     action => action.type.endsWith('/rejected'),
-        //     state => {
-        //         state.isProgress = false;
-        //     },
-        // );
-        //
-        // builder.addMatcher(
-        //     action => action.type.endsWith('/fulfilled'),
-        //     state => {
-        //         state.isProgress = false;
-        //     },
-        // );
     }
 })
 

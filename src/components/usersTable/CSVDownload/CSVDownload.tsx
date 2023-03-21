@@ -1,12 +1,12 @@
 import React from 'react';
 import s from "./CsvDownload.module.scss"
 import {CSVLink} from "react-csv";
-import {useAppSelector} from "../../../app/store/store";
-import {selectorUsers} from "../../../app/store/selector/selectorApp";
+import {useAppSelector} from "../../../store/store";
+import {selectorUsersFinish} from "../../../store/selector/selectorApp";
 import {Button} from "@mui/material";
 
 const CsvDownload = () => {
-    const users = useAppSelector(selectorUsers)
+    const users = useAppSelector(selectorUsersFinish)
 
     const headers = [
         {label: "Id", key: "id"},

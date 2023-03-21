@@ -1,11 +1,13 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {sendDataType, usersAPI, UserType} from "../../../api/usersAPI";
+import {sendDataType, usersAPI, UserType} from "../../api/usersAPI";
 import {AppRootStateType} from "../store";
 import {AxiosError} from "axios";
-import {handleServerNetworkError} from "../../../utils/error-utils";
-
+import {handleServerNetworkError} from "../../utils/error-utils";
+import {setAppStatusAC} from "./app-reducer";
+import {setChangedUsers} from "./changedUsers-reducer";
 
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async (payload: sendDataType, { getState, dispatch })=> {
+        dispatch(setAppStatusAC('loading'))
         try {
             const state = getState() as AppRootStateType;
             const res = await usersAPI.fetchUsers({
@@ -14,6 +16,8 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async (payload: s
                 language: state.app.language,
                 ...payload,
             });
+            dispatch(setChangedUsers({users: res.data}))
+            dispatch(setAppStatusAC('succeeded'))
             return res.data
         } catch (err: any) {
             const error: AxiosError = err.response.data
@@ -21,26 +25,6 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async (payload: s
         }
     },
 );
-
-export const fetchUsersSeed = createAsyncThunk('usersSlice/fetchUsersSeed', async (_, { dispatch, getState }) => {
-        try {
-            const state = getState() as AppRootStateType;
-            const res = await usersAPI.fetchUsers({
-                page: state.app.page,
-                seed: state.app.seed,
-                language: state.app.language,
-            });
-            return res.data
-        } catch (err: any) {
-            const error: AxiosError = err.response.data
-            handleServerNetworkError(error, dispatch)
-        }
-    },
-);
-
-
-const USER_TO_TWO_FIRST_PAGE = 20;
-
 
 
 const slice = createSlice({
@@ -58,11 +42,6 @@ const slice = createSlice({
             } else {
                 return [...action.payload!];
             }
-        });
-        builder.addCase(fetchUsersSeed.fulfilled, (state, action) => {
-            // const payload = action.payload as unknown as UserResponseType;
-            // const startUser = state.slice(0, state.length - USER_TO_TWO_FIRST_PAGE);
-            return [...state, ...action.payload!];
         });
     },
 });

@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import UsersTable from "../components/usersTable/UsersTable";
-import {useAppDispatch, useAppSelector} from "./store/store";
-import {selectorLanguage, selectorNumberOfMistakes} from "./store/selector/selectorApp";
-import {fetchUsers} from "./store/reducers/users-reducer";
-import {AmountUser} from "../enums/amountUser";
+import {useAppDispatch, useAppSelector} from "../store/store";
+import {selectorLanguage, selectorNumberOfMistakes} from "../store/selector/selectorApp";
+import {fetchUsers} from "../store/reducers/users-reducer";
+import {AmountUser} from "../enums/AmountUser";
 
 function App() {
     const dispatch = useAppDispatch();
@@ -13,6 +13,7 @@ function App() {
     useEffect(() => {
         dispatch(fetchUsers({ language, seed, amount: AmountUser.First }));
     }, []);
+
     return (
         <div>
             <UsersTable/>

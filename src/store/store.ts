@@ -4,11 +4,13 @@ import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import {configureStore} from "@reduxjs/toolkit";
 import {appReducer} from "./reducers/app-reducer";
 import {usersReducer} from "./reducers/users-reducer";
+import {changedUsersReducer} from "./reducers/changedUsers-reducer";
 
 
 const rootReducer = combineReducers({
     app: appReducer,
     users: usersReducer,
+    usersFinish: changedUsersReducer,
 })
 
 

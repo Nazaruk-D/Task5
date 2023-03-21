@@ -34,7 +34,6 @@ const getAlphabetForRegion = (language: LanguageType) => {
     }
 }
 
-
 export const generateErrors = (inputs: string, errorRate: number, language: LanguageType, seedNumber?: number) => {
     let input = inputs
     let rng: seedrandom.PRNG
@@ -43,9 +42,7 @@ export const generateErrors = (inputs: string, errorRate: number, language: Lang
     } else {
         rng = seedrandom()
     }
-
     const errors = Math.floor(errorRate) + (rng() < (errorRate % 1) ? 1 : 0);
-
     for (let i = 0; i < errors; i++) {
         input = generateError(input, language, rng);
     }
