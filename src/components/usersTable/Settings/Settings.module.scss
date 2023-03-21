@@ -6,19 +6,20 @@
   margin-bottom: 30px;
 
   .settingsBlock {
-    @include flex(row, space-between, center, wrap);
+    @include flex(row, space-between, center, nowrap);
     width: 70%;
     height: 60px;
 
     .radioBlock {
-      @include flex(row, space-between, center, wrap);
-      width: 280px;
+      @include flex(row, space-between, center, nowrap);
+      width: 260px;
 
     }
 
     .sliderBlock {
       @include flex(row, center, center, wrap);
-      width: 280px;
+      width: 220px;
+
     }
 
     .inputBlock {
@@ -28,8 +29,9 @@
     }
 
     .seedBlock {
-      @include flex(row, space-evenly, center, wrap);
-      width: 290px;
+      @include flex(row, space-evenly, center, nowrap);
+      width: 230px;
+
     }
   }
 }

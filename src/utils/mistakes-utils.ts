@@ -1,5 +1,5 @@
-import {Alphabets} from "../enums/Letters";
 import {Language, LanguageType} from "../enums/Language";
+import {Alphabets} from "../enums/Alphabets";
 
 const generateError = (input: string, language: LanguageType): any => {
     const errorTypes = ['delete', 'insert', 'swap'];
@@ -27,8 +27,8 @@ const getAlphabetForRegion = (language: LanguageType) => {
             return Alphabets[Language.US]
         case 'ru':
             return Alphabets[Language.RU]
-        case 'ua':
-            return Alphabets[Language.UA]
+        case 'de':
+            return Alphabets[Language.DE]
     }
 }
 
@@ -36,9 +36,7 @@ const getAlphabetForRegion = (language: LanguageType) => {
 export const generateErrors = (inputs: string, errorRate: number, language: LanguageType) => {
     let input = inputs
     const errors = Math.floor(errorRate) + (Math.random() < (errorRate % 1) ? 1 : 0);
-    console.log(errors)
     for (let i = 0; i < errors; i++) {
-        debugger
         input = generateError(input, language)
     }
     return input;

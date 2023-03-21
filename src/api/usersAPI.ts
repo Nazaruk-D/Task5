@@ -7,7 +7,7 @@ export const usersAPI = {
         return instance.post<ResponseType<UserType[]>>(`users`, payload).then((response) => response.data)
     },
     fetchUsersSeed(payload: sendDataType) {
-        return instance.post<ResponseType<{ids: number[]}>>(`seed`, payload).then((response) => response.data)
+        return instance.post<ResponseType<UserType[]>>(`seed`, payload).then((response) => response.data)
     },
 }
 

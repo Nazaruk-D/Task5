@@ -1,7 +1,7 @@
 export enum Language {
     US = 'en',
     RU = 'ru',
-    UA = 'ua',
+    DE = 'de',
 }
 
-export type LanguageType = Language.RU | Language.UA | Language.US;
+export type LanguageType = Language.RU | Language.DE | Language.US;
