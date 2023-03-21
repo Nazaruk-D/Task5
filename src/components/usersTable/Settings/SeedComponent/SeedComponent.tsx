@@ -13,11 +13,15 @@ const SeedComponent: FC<SeedComponentPropsType> = ({onSeedChange}) => {
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) => {
         if (e.target.value) {
             setValue(Number(e.target.value));
+            onSeedChange(Number(e.target.value));
+
         }
     }
 
     const onClickHandler= () => {
-        onSeedChange(value)
+        const randomSeed = Math.floor(Math.random() * 100000);
+        setValue(randomSeed);
+        onSeedChange(randomSeed);
     }
 
     return (
@@ -35,7 +39,7 @@ const SeedComponent: FC<SeedComponentPropsType> = ({onSeedChange}) => {
                     }}
                 />
             </Box>
-            <Button variant="contained" onClick={onClickHandler}>Set</Button>
+            <Button variant="contained" onClick={onClickHandler}>Random Seed</Button>
         </div>
     );
 };
