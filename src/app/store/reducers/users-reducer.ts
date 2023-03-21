@@ -62,7 +62,7 @@ const slice = createSlice({
         builder.addCase(fetchUsersSeed.fulfilled, (state, action) => {
             // const payload = action.payload as unknown as UserResponseType;
             // const startUser = state.slice(0, state.length - USER_TO_TWO_FIRST_PAGE);
-            // state = [...startUser, ...payload.users];
+            return [...state, ...action.payload!];
         });
     },
 });

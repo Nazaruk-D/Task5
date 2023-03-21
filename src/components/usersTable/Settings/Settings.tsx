@@ -40,9 +40,14 @@ const Settings = () => {
         }
     }, [languageSettings]);
 
+
+
     const onSeedChange = (value: number) => {
         dispatch(setSeed(value));
-        dispatch(fetchUsersSeed());
+        // dispatch(fetchUsersSeed());
+        dispatch(resetUser())
+        dispatch(fetchUsers({ amount: AmountUser.First, language: languageSettings }));
+
     };
 
 
