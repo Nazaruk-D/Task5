@@ -62,12 +62,12 @@ const CustomTable = () => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {users.map(({id, number, name, address, phoneNumber}) => ({
+                            {users.map(({id, number, name, address, phoneNumber, seedNumber}) => ({
                                 id: id,
                                 number: number,
-                                name: generateErrors(name, mistakes, language),
-                                address: generateErrors(address, mistakes, language),
-                                phoneNumber: generateErrors(phoneNumber, mistakes, language),
+                                name: generateErrors(name, mistakes, language, seedNumber),
+                                address: generateErrors(address, mistakes, language, seedNumber),
+                                phoneNumber: generateErrors(phoneNumber, mistakes, language, seedNumber),
                             })).map((row, i) => (
                                 <Row key={row.id} row={row} index={i}/>
                             ))

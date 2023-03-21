@@ -25,9 +25,10 @@ export type sendDataType = {
 };
 
 export type UserType = {
-    id: string;
-    number: string;
-    name: string;
-    address: string;
-    phoneNumber: string;
+    id: string
+    number: string
+    name: string
+    address: string
+    phoneNumber: string
+    seedNumber?: number
 };
