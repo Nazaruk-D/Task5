@@ -24,6 +24,7 @@ const Settings = () => {
     const mistakesFromApp = useAppSelector(selectorNumberOfMistakes)
     const [languageSettings, setLanguageSettings] = useState<LanguageType>(startLanguage);
     const [mistakes, setMistake] = useState(mistakesFromApp);
+
     const sliderMistakesDebounce = useDebounce(mistakes);
 
     const onChangeSlider = (value: number) => {
@@ -35,10 +36,6 @@ const Settings = () => {
         dispatch(resetUser())
         dispatch(fetchUsers({ amount: AmountUser.First, language: languageSettings }));
     };
-
-    useEffect(() => {
-        dispatch(setMistakes(sliderMistakesDebounce));
-    }, [sliderMistakesDebounce, dispatch]);
 
     useEffect(() => {
         if (languageSettings) {
@@ -68,7 +65,7 @@ const Settings = () => {
         }))
         dispatch(resetChangedUsers())
         dispatch(setChangedUsers({users: newUsers}))
-    }, [mistakes, dispatch])
+    }, [sliderMistakesDebounce, dispatch])
 
     return (
         <div className={s.settingsContainer}>
